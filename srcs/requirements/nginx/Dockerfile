@@ -1,22 +1,19 @@
-# Utilise l'image de base Debian Buster
-FROM debian:buster
+# Utiliser l'image Alpine v3.17 comme base
+FROM alpine:3.17
 
-# Met à jour le système et installe Nginx
-RUN apt update \
-    && apt install -y  vim \
-                    curl \
-                    nginx \
-    && apt clean \
-    && rm -rf /var/lib/apt/lists/* \
-    && mkdir -p /etc/nginx/ssl \
-	&& openssl req -x509 -nodes -out /etc/nginx/ssl/inception.crt -keyout /etc/nginx/ssl/inception.key -subj "/C=FR/ST=IDF/L=Paris/O=42/OU=42/CN=nfauconn.42.fr/UID=nfauconn"
+# Mettre à jour les packages et installer NGINX
+RUN apk update && apk upgrade && apk add --no-cache nginx curl vim openssl
 
-# Copie la configuration personnalisée de Nginx dans le conteneur
-#COPY nginx.conf /etc/nginx/nginx.conf
+RUN nginx
+RUN openssl req -x509 -nodes -days 365 -subj "/C=FR/ST=Ile-de-France/O=42, Inc./CN=nfauconn.42.fr" -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt;
+RUN echo "<h1>Hello world!</h1>" > /var/www/localhost/htdocs/index.html;
 
-# Expose le port 80 pour le trafic HTTP
-#EXPOSE 80
+# Copier le fichier de configuration NGINX
+COPY $PWD/conf/http.d/default.conf /etc/nginx/http.d/default.conf
 
-# Lance le service Nginx lors du démarrage du conteneur
+# Exposer le port 80 pour les requêtes HTTP et le port 443 pour les requêtes HTTPS
+EXPOSE 80 443
+
+# Définir la commande par défaut pour exécuter NGINX en mode daemon
 #CMD ["nginx", "-g", "daemon off;"]
 
