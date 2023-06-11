@@ -1,19 +1,26 @@
-# Utiliser l'image Alpine v3.17 comme base
-FROM alpine:3.17
+FROM debian:buster
 
-# Mettre à jour les packages et installer NGINX
-RUN apk update && apk upgrade && apk add --no-cache nginx curl vim openssl
+RUN apt update && apt upgrade
+RUN apt install -y curl vim
+RUN apt install -y nginx openssl
 
-RUN nginx
-RUN openssl req -x509 -nodes -days 365 -subj "/C=FR/ST=Ile-de-France/O=42, Inc./CN=nfauconn.42.fr" -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt;
-RUN echo "<h1>Hello world!</h1>" > /var/www/localhost/htdocs/index.html;
+RUN mkdir -p /etc/nginx/ssl && mkdir -p /etc/nginx/ssl/private && mkdir -p /etc/nginx/ssl/certs
 
-# Copier le fichier de configuration NGINX
-COPY $PWD/conf/http.d/default.conf /etc/nginx/http.d/default.conf
+RUN openssl req \
+            -x509 \
+            -nodes \
+            -days 365 \
+            -out /etc/nginx/ssl/certs/nginx-selfsigned.crt \
+            -keyout /etc/nginx/ssl/private/nginx-selfsigned.key \
+            -subj "/C=FR/ST=IDF/L=Paris/O=42/OU=42/CN=nfauconn.42.fr/UID=nfauconn" 
+
+RUN mkdir -p /var/run/nginx
+
+COPY conf/default /etc/nginx/sites-available/default
 
 # Exposer le port 80 pour les requêtes HTTP et le port 443 pour les requêtes HTTPS
 EXPOSE 80 443
 
 # Définir la commande par défaut pour exécuter NGINX en mode daemon
-#CMD ["nginx", "-g", "daemon off;"]
+CMD ["nginx", "-g", "daemon off;"]
 
