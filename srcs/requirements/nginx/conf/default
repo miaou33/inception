@@ -1,22 +1,20 @@
-FROM	debian:buster
+server {
+	listen 443 ssl;
+	listen [::]:443 ssl;
 
-RUN		apt update && apt upgrade
-RUN		apt install -y nginx \
-                       openssl
+	server_name nfauconn.42.fr;
+	ssl_certificate		/etc/nginx/ssl/ssl-selfsigned.crt;
+	ssl_certificate_key	/etc/nginx/ssl/ssl-selfsigned.key;
 
-RUN mkdir /etc/nginx/ssl
-RUN openssl req -newkey rsa:4096 -x509 -sha256 -days 365 -nodes \
-       -out /etc/nginx/ssl/ssl-selfsigned.crt \
-       -keyout /etc/nginx/ssl/ssl-selfsigned.key \
-       -subj "/C=FR/ST=Paris/L=Paris/O=42 School/OU=nfauconn/CN=nfauconn/"
+	ssl_protocols		TLSv1.2 TLSv1.3;
 
-COPY ./conf/nginx.conf /etc/nginx/conf.d
+	root /var/www/html;
+	index index.html index.nginx-debian.html;
+	#index index.php index.nginx-debian.html;
 
-# nginx config
-RUN mkdir -p /run/nginx
+	location / {
+		#try_files $uri $uri/ /index.php$is_args$args;
+		try_files $uri $uri/ /index.html$is_args$args;
+	}
+}
 
-#the only port allowed
-EXPOSE	443
-
-# Start nginx
-CMD ["nginx", "-g", "daemon off;"]
