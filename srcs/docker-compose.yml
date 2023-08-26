@@ -1,35 +1,49 @@
-version: '3.5'
+version: '3'
+
 services:
-  adminer:
-    container_name: Adminer     # Name redirect to IP -> 172.X.X.Z
-    build: bonus/adminer/.  # Build the dockerfile in ./adminer_directory/Dockerfile 
-    restart: always             # Restart the container if it has stopped
+  nginx:
+    image: nginx:alpine
     ports:
-      - "80:80"                 # Redirect port 80 of Adminer on the host
-    networks:
-      - mynetwork               # Use mynetwork for communicate with mariadb
-  
-  mariadb:
-    container_name: Mariadb
-    build: mariadb/.
-    restart: always
-    networks:
-      - mynetwork
+      - "443:443"
     volumes:
-      - db:/var/lib/mysql
-    env_file: .env
+      - ./nginx-conf:/etc/nginx/conf.d
+      - wordpress_data:/var/www/html
+    networks:
+      - my_network
+    depends_on:
+      - wordpress
 
-# NETWORK
-networks:
-  mynetwork:
-    name : mynetwork
-    driver : bridge
+  wordpress:
+    image: wordpress:php7.4-fpm-alpine
+    environment:
+      WORDPRESS_DB_HOST: mariadb
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress
+    volumes:
+      - wordpress_data:/var/www/html
+    networks:
+      - my_network
+    depends_on:
+      - mariadb
 
-# VOLUME
+  mariadb:
+    image: mariadb:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    networks:
+      - my_network
+
 volumes:
-  db:
-    driver: local
-    driver_opts:
-      type: 'none'
-      o: 'bind'
-      device: /home/nfauconn/data/mariadb_data
+  wordpress_data:
+  mariadb_data:
+
+networks:
+  my_network:
+    driver: bridge
+
