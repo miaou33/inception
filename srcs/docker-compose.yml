@@ -30,10 +30,10 @@ services:
   mariadb:
     image: mariadb:latest
     environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: wordpress
-      MYSQL_USER: wordpress
-      MYSQL_PASSWORD: wordpress
+      MYSQL_ROOT_PASSWORD: ${MDB_ROOT_PWD}
+      MYSQL_DATABASE: ${MDB_NAME}
+      MYSQL_USER: ${MDB_USR}
+      MYSQL_PASSWORD: ${MDB_USR_PWD}
     volumes:
       - mariadb_data:/var/lib/mysql
     networks:
@@ -46,4 +46,3 @@ volumes:
 networks:
   my_network:
     driver: bridge
-
