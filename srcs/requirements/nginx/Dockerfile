@@ -37,5 +37,5 @@ COPY conf/nginx.conf /etc/nginx/nginx.conf
 EXPOSE 443
 
 # Start Nginx when the container starts
-#CMD ["nginx", "-g", "daemon off;"]
+CMD ["nginx", "-g", "daemon off;"]
 
