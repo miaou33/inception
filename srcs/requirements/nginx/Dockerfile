@@ -22,7 +22,8 @@ RUN openssl req -x509 \ # -x509 tells OpenSSL to create a self-signed certificat
 RUN mkdir -p /run/nginx
 
 # Copy over configuration files if needed
-#COPY conf/default.conf /etc/nginx/http.d/default.conf
+COPY conf/default.conf /etc/nginx/http.d/default.conf
+COPY conf/nginx.conf /etc/nginx/nginx.conf
 
 # Expose the port Nginx will run on
 EXPOSE 80
