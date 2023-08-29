@@ -1,19 +1,29 @@
 version: '3'
-
 services:
-  nginx :
-    image           : nginx
-    container_name  : nginx
-    restart         : on-failure
-    build           : requirements/nginx/
-      #    volumes :
-      #- WordPress:/var/www/wordpress
-    networks :
-      - inception
-    ports :
-      - 443:443
-    #depends_on :
-    #- wordpress
+  nginx:
+    build:
+      context: ./requirements/nginx
+    restart: on-failure
+    ports:
+      - "8080:443"
+    volumes:
+      - ./requirements/nginx/conf:/etc/nginx/conf.d
+
+#version: '3'
+#
+#services:
+#  nginx :
+#    image           : nginx
+#    container_name  : nginx
+#    build           : requirements/nginx/
+#      #    volumes :
+#      #- WordPress:/var/www/wordpress
+#    networks :
+#      - inception
+#    ports :
+#      - 8080:443
+#    depends_on :
+#      - wordpress
 
 #  wordpress:
 #    image: wordpress:php7.4-fpm-alpine
