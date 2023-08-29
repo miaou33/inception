@@ -1,48 +1,50 @@
 version: '3'
 
 services:
-  nginx:
-    image: nginx:alpine
-    ports:
-      - "443:443"
-    volumes:
-      - ./nginx-conf:/etc/nginx/conf.d
-      - wordpress_data:/var/www/html
-    networks:
-      - my_network
-    depends_on:
-      - wordpress
+  nginx :
+    image           : nginx
+    container_name  : nginx
+    restart         : on-failure
+    build           : requirements/nginx/
+      #    volumes :
+      #- WordPress:/var/www/wordpress
+    networks :
+      - inception
+    ports :
+      - 443:443
+    #depends_on :
+    #- wordpress
 
-  wordpress:
-    image: wordpress:php7.4-fpm-alpine
-    environment:
-      WORDPRESS_DB_HOST: mariadb
-      WORDPRESS_DB_USER: wordpress
-      WORDPRESS_DB_PASSWORD: wordpress
-      WORDPRESS_DB_NAME: wordpress
-    volumes:
-      - wordpress_data:/var/www/html
-    networks:
-      - my_network
-    depends_on:
-      - mariadb
-
-  mariadb:
-    image: mariadb:latest
-    environment:
-      MYSQL_ROOT_PASSWORD: ${MDB_ROOT_PWD}
-      MYSQL_DATABASE: ${MDB_NAME}
-      MYSQL_USER: ${MDB_USR}
-      MYSQL_PASSWORD: ${MDB_USR_PWD}
-    volumes:
-      - mariadb_data:/var/lib/mysql
-    networks:
-      - my_network
-
-volumes:
-  wordpress_data:
-  mariadb_data:
+#  wordpress:
+#    image: wordpress:php7.4-fpm-alpine
+#    environment:
+#      WORDPRESS_DB_HOST: mariadb
+#      WORDPRESS_DB_USER: wordpress
+#      WORDPRESS_DB_PASSWORD: wordpress
+#      WORDPRESS_DB_NAME: wordpress
+#    volumes:
+#      - wordpress_data:/var/www/html
+#    networks:
+#      - inception
+#    depends_on:
+#      - mariadb
+#
+#  mariadb:
+#    image: mariadb:latest
+#    environment:
+#      MYSQL_ROOT_PASSWORD: ${MDB_ROOT_PWD}
+#      MYSQL_DATABASE: ${MDB_NAME}
+#      MYSQL_USER: ${MDB_USR}
+#      MYSQL_PASSWORD: ${MDB_USR_PWD}
+#    volumes:
+#      - mariadb_data:/var/lib/mysql
+#    networks:
+#      - inception
+#
+#volumes:
+#  wordpress_data:
+#  mariadb_data:
 
 networks:
-  my_network:
+  inception:
     driver: bridge
