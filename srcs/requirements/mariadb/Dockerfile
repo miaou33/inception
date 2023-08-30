@@ -5,7 +5,7 @@ FROM alpine:3.17
 RUN apk update && apk add mysql mysql-client
 
 # Copy configuration file and startup script
-#COPY my.cnf /etc/mysql/my.cnf
+COPY conf/mariadb-server.cnf /etc/my.cnf.d/mariadb-server.cnf
 COPY conf/start.sh /start.sh
 
 # Expose MySQL port

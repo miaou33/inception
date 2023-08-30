@@ -8,6 +8,35 @@ services:
       - "8080:443"
     volumes:
       - ./requirements/nginx/conf:/etc/nginx/conf.d
+    networks:
+      - inception
+
+  mariadb:
+    build:
+      context: ./requirements/mariadb
+    restart: on-failure
+    expose:
+      - "3306"
+    env_file:
+      - .env
+    container_name: mariadb
+    image: mariadb
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    networks:
+      - inception
+
+volumes:
+  mariadb_data:
+    driver_opts:
+      o : bind
+      type : none
+      device: /home/no3/data/db
+  #   website:
+  #     driver_opts:
+  #       o : bind
+  #       type : none
+  #       device: /home/nfauconn/data/wordpress
 
 #version: '3'
 #

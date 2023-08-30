@@ -1,37 +1,30 @@
-DATA_DIR = /home/nfauconn/data
-DOCKER_COMPOSE_YML = srcs/docker-compose.yml
+SRCS		= srcs
+COMPOSER	= docker-compose.yml
 
-NGINX = /var/lib/docker/nginx
-MARIADB = /var/lib/docker/mariadb
-WORDPRESS = /var/lib/docker/wordpress
 
-SRC_NGINX = srcs/nginx/Dockerfile
-SRC_MARIADB = srcs/mariadb/Dockerfile
-SRC_WORDPRESS = srcs/wordpress/Dockerfile
+# Règles
+all			:
+			docker-compose -f $(SRCS)/$(COMPOSER) up --build 
 
-all:	up
+stop		:
+			docker-compose -f $(SRCS)/$(COMPOSER) down
 
-up:	build
-	sudo docker --log-level WARNING compose -f ${DOCKER_COMPOSE_YML} up
+debug		: rmv
+			docker-compose -f $(SRCS)/$(COMPOSER) up --build -d
+			docker exec -it $(filter-out $@,$(MAKECMDGOALS)) sh
 
-down:	
-	sudo docker compose -f ${DOCKER_COMPOSE_YML} down
+%:
+    @:
 
-build:
-	sudo mkdir -p ${DATA_DIR}/mariadb_data
-	sudo mkdir -p ${DATA_DIR}/wordpress_data
-	sudo docker --log-level WARNING compose -f ${DOCKER_COMPOSE_YML} build
-	
+rmv			:
+			rm -rf /home/no3/data/mariadb
 
-run:	build
-	sudo docker-compose run
+clean		:
+			docker system prune
 
-clean: down
-	sudo docker system prune -af
-	-$(sudo docker volume rm -f $(sudo docker volume ls -q) 2>/dev/null)
-	sudo rm -rf ${DATA_DIR}
+fclean		: rmv
+			docker system prune -fa
 
-re:	clean
-	make all
+re			: fclean all
 
-.PHONY: all build up down run nginx mariadb wordpress clean re 
+.PHONY		: all stop clean fclean re rmv

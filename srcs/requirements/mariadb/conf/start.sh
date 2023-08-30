@@ -19,11 +19,11 @@
 
 # On crée un répertoire pour le socket MariaDB.
 # On rend l'utilisateur qui exécute mariaDB propriétaire de ce dernier.
-mkdir /var/run/mysqld
+mkdir -p /var/run/mysqld
 chown -R mysql:mysql /var/run/mysqld
 
 # On vérifie que la base de données n'existe pas déjà.
-if [ ! -d var/lib/mysql/${DB_NAME} ]; then
+if [ ! -d /var/lib/mysql/mysql ]; then
 	# On initialise MariaDB.
 	mysql_install_db --user=mysql --datadir=/var/lib/mysql
 
