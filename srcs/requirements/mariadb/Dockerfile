@@ -13,3 +13,5 @@ EXPOSE 3306
 
 # Set the startup script as the entry point
 ENTRYPOINT [ "/start.sh" ]
+
+CMD ["mysqld", "--user=mysql"]
