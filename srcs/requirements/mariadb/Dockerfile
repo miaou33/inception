@@ -1,4 +1,3 @@
-# Use Alpine Linux's penultimate version as the base image.
 FROM alpine:3.17
 
 # Install Nginx
