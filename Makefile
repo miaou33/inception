@@ -3,7 +3,9 @@ COMPOSER	= docker-compose.yml
 
 
 # Règles
-all			:
+all			: run
+
+run			:
 			docker-compose -f $(SRCS)/$(COMPOSER) up --build 
 
 stop		:
@@ -17,7 +19,12 @@ debug		: rmv
     @:
 
 rmv			:
-			rm -rf /home/no3/data/mariadb
+    		@VOLUMES=$$(docker volume ls -qf dangling=true); \
+    		if [ -n "$$VOLUMES" ]; then \
+        		docker volume rm $$VOLUMES; \
+    		else \
+        		echo "No dangling volumes to remove"; \
+    		fi
 
 clean		:
 			docker system prune
@@ -27,4 +34,4 @@ fclean		: rmv
 
 re			: fclean all
 
-.PHONY		: all stop clean fclean re rmv
+.PHONY		: all run stop debug rmv clean fclean re 

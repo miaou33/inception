@@ -31,12 +31,16 @@ volumes:
     driver_opts:
       o : bind
       type : none
-      device: /home/no3/data/db
+      device: /home/noe/data/db
   #   website:
   #     driver_opts:
   #       o : bind
   #       type : none
   #       device: /home/nfauconn/data/wordpress
+
+networks:
+  inception:
+    driver: bridge
 
 #version: '3'
 #
@@ -83,7 +87,7 @@ volumes:
 #volumes:
 #  wordpress_data:
 #  mariadb_data:
-
-networks:
-  inception:
-    driver: bridge
+#
+#networks:
+#  inception:
+#    driver: bridge
