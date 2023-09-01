@@ -1,0 +1,4 @@
+- fastcgi nginx
+- volumes
+- change path of volume for 42 vm !!!
+-
