@@ -2,12 +2,16 @@
 FROM alpine:3.17
 
 # Install Nginx
-RUN apk update && \
-    apk add nginx openssl
+RUN apk update --no-cache \
+    && apk upgrade --no-cache \
+    && apk add --no-cache nginx \
+	                      openssl
 
 # Create necessary folders and give permissions
-RUN mkdir -p /run/nginx && \
-    mkdir -p /etc/nginx/ssl
+RUN mkdir -p /run/nginx \
+    && mkdir -p /etc/nginx/ssl \
+    && mkdir /var/www/wordpress     \
+    && chown -R nginx:nginx /var/log/nginx
 
 # Generate a self-signed SSL certificate (For testing purposes only)
 # -x509 tells OpenSSL to create a self-signed certificate

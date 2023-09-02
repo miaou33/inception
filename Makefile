@@ -6,7 +6,7 @@ COMPOSER	= docker-compose.yml
 all			: run
 
 run			:
-			docker-compose -f $(SRCS)/$(COMPOSER) up --build 
+			docker-compose -f $(SRCS)/$(COMPOSER) up --build -d
 
 stop		:
 			docker-compose -f $(SRCS)/$(COMPOSER) down

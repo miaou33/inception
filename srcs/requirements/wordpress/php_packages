@@ -1,0 +1,113 @@
+php81-pecl-couchbase-4.0.0-r1 - PHP 8.1 extension for Couchbase - PECL
+php81-snmp-8.1.22-r0 - PHP81 extension: SNMP
+php81-pecl-mongodb-1.15.1-r0 - PHP 8.1 MongoDB driver - PECL
+mongo-php-library-1.13.0-r0 - High-level abstraction around the lower-level drivers for PHP
+php81-openssl-8.1.22-r0 - PHP81 extension: OpenSSL
+php81-pgsql-8.1.22-r0 - PHP81 extension: PostgreSQL
+php81-pecl-ast-1.1.0-r0 - PHP extension exposing PHP 8.1 abstract syntax tree - PECL
+php81-bcmath-8.1.22-r0 - PHP81 extension: BC Math
+php81-pecl-apcu-5.1.22-r0 - PHP 8.1 extension APC User Cache - PECL
+php81-pcntl-8.1.22-r0 - PHP81 extension: pcntl
+php81-bz2-8.1.22-r0 - PHP81 extension: Bzip2
+php81-session-8.1.22-r0 - PHP81 extension: Sessions
+php81-pecl-xhprof-2.3.9-r0 - A Hierarchical Profiler for PHP 8.1 - PECL
+php81-intl-8.1.22-r0 - PHP81 extension: Internationalization
+php81-pdo_dblib-8.1.22-r0 - PHP81 extension: DB-LIB (MS SQL, Sybase)
+php81-pecl-rdkafka-6.0.3-r0 - A librdkafka bindings for PHP 8.1 providing a working client for Kafka - PECL
+php81-shmop-8.1.22-r0 - PHP81 extension: Shared Memory Operations
+phpldapadmin-1.2.6.6-r0 - Web front-end for managing OpenLDAP
+php81-embed-8.1.22-r0 - PHP81 Embedded Library
+php81-dev-8.1.22-r0 - The PHP81 language runtime engine (development files)
+php81-pear-8.1.22-r0 - PHP81 Extension and Application Repository
+php81-sodium-8.1.22-r0 - PHP81 extension: Sodium
+nextcloud-initscript-25.0.10-r0 - Init script that runs Nextcloud with php-fpm
+php81-opcache-8.1.22-r0 - PHP81 extension: Opcache
+php81-sqlite3-8.1.22-r0 - PHP81 extension: SQLite3
+php81-pecl-yaml-2.2.2-r0 - YAML syntax bindings for PHP 8.1 - PECL
+php81-pecl-mailparse-3.1.4-r0 - PHP 8.1 extension for parsing and working with email messages - PECL
+php81-pecl-amqp-1.11.0-r0 - PHP 8.1 extension to communicate with any AMQP spec 0-9-1 compatible server - PECL
+php81-phar-8.1.22-r0 - PHP81 extension: PHP Archive
+php81-calendar-8.1.22-r0 - PHP81 extension: Calendar
+php81-ctype-8.1.22-r0 - PHP81 extension: ctype
+unit-php81-1.29.1-r0 - php81 module for NGINX Unit
+php81-litespeed-8.1.22-r0 - PHP81 LiteSpeed SAPI
+sphinx-php-2.2.11-r6 - PHP api for sphinx search engine
+php81-pecl-memcached-3.2.0-r0 - PHP 8.1 extension for interfacing with memcached via libmemcached library - PECL
+mongo-php-library-doc-1.13.0-r0 - High-level abstraction around the lower-level drivers for PHP (documentation)
+php81-pecl-imagick-3.7.0-r0 - PHP 8.1 extension provides a wrapper to the ImageMagick library - PECL
+php81-pecl-xhprof-assets-2.3.9-r0 - A Hierarchical Profiler for PHP (UI assets)
+php81-ftp-8.1.22-r0 - PHP81 extension: FTP
+php81-pecl-event-3.0.8-r1 - PHP 8.1 extension that provides interface to libevent library - PECL
+php81-pspell-8.1.22-r0 - PHP81 extension: Pspell
+php81-pecl-ssh2-1.3.1-r0 - PHP 8.1 extension provide bindings for the libssh2 library - PECL
+php81-ldap-8.1.22-r0 - PHP81 extension: LDAP
+php81-pecl-xdebug-3.2.1-r0 - PHP 8.1 extension that provides functions for function traces and profiling - PECL
+php81-ffi-8.1.22-r0 - PHP81 extension: FFI
+php81-sysvshm-8.1.22-r0 - PHP81 extension: System V Shared Memory
+php81-pecl-msgpack-2.2.0_rc2-r0 - PHP 8.1 extension provides API for communicating with MessagePack serialization - PECL
+phpmyadmin-doc-5.2.1-r0 - A Web-based PHP tool for administering MySQL
+php81-pecl-lzf-1.7.0-r0 - PHP 8.1 extension handles LZF de/compression - PECL
+php81-pecl-igbinary-3.2.12-r0 - Igbinary is a drop in replacement for the standard PHP 8.1 serializer - PECL
+perl-php-serialization-doc-0.34-r3 - Simple flexible means of converting the output of PHP's serialize() into the equivalent Perl memory structure, and vice versa. (documentation)
+phpmyadmin-5.2.1-r0 - A Web-based PHP tool for administering MySQL
+php81-pecl-protobuf-3.21.7-r0 - PHP 8.1 extension: Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data - PECL
+php81-pecl-uploadprogress-2.0.2-r0 - PHP 8.1 extension to track progress of a file upload - PECL
+icinga-php-thirdparty-doc-0.11.0-r0 - Bundle for all 3rd party PHP libraries used by Icinga Web products (documentation)
+php81-soap-8.1.22-r0 - PHP81 extension: SOAP
+cacti-php81-1.2.22-r1 - The complete rrdtool-based graphing solution (php81 dependencies)
+php81-fileinfo-8.1.22-r0 - PHP81 extension: fileinfo
+php81-pecl-imagick-dev-3.7.0-r0 - PHP 8.1 extension provides a wrapper to the ImageMagick library - PECL (development files)
+php81-exif-8.1.22-r0 - PHP81 extension: EXIF
+php81-xmlwriter-8.1.22-r0 - PHP81 extension: XMLWriter
+php81-mysqli-8.1.22-r0 - PHP81 extension: MySQLi
+php81-pdo_sqlite-8.1.22-r0 - PHP81 extension: SQLite 3.x driver for PDO
+php81-odbc-8.1.22-r0 - PHP81 extension: ODBC
+php81-apache2-8.1.22-r0 - PHP81 Module for Apache2
+php81-tokenizer-8.1.22-r0 - PHP81 extension: tokenizer
+php81-cgi-8.1.22-r0 - PHP81 Common Gateway Interface
+php81-pecl-swoole-5.0.3-r0 - Event-driven asynchronous and concurrent networking engine with high performance for PHP 8.1 - PECL
+php81-sysvsem-8.1.22-r0 - PHP81 extension: System V Semaphores
+php81-pecl-zstd-0.12.0-r0 - PHP 8.1 Zstandard extension - PECL
+php81-pecl-psr-1.2.0-r0 - PHP 8.1 extension provides the accepted PSR interfaces, so they can be used in an extension - PECL
+php81-sockets-8.1.22-r0 - PHP81 extension: Sockets
+icinga-php-library-0.10.0-r0 - Bundle for all Icinga PHP libraries
+php81-mysqlnd-8.1.22-r0 - PHP81 extension: MySQLnd
+php81-pdo_mysql-8.1.22-r0 - PHP81 extension: MySQL driver for PDO
+php81-pecl-uuid-1.2.0-r0 - PHP 8.1 wrapper around libuuid from the ext2utils project - PECL
+php81-common-8.1.22-r0 - The PHP81 language runtime engine (common config)
+php81-doc-8.1.22-r0 - The PHP81 language runtime engine (documentation)
+php81-pecl-uploadprogress-doc-2.0.2-r0 - PHP 8.1 extension to track progress of a file upload - PECL (documentation)
+php81-imap-8.1.22-r0 - PHP81 extension: IMAP
+php81-simplexml-8.1.22-r0 - PHP81 extension: SimpleXML
+php81-brotli-0.11.1-r0 - Brotli Extension for PHP 8.1
+php81-xsl-8.1.22-r0 - PHP81 extension: XSL
+php81-fpm-8.1.22-r0 - PHP81 FastCGI Process Manager
+php81-tidy-8.1.22-r0 - PHP81 extension: tidy
+php81-xml-8.1.22-r0 - PHP81 extension: XML
+php81-pdo_pgsql-8.1.22-r0 - PHP81 extension: PostgreSQL driver for PDO
+php81-phpdbg-8.1.22-r0 - Interactive PHP81 debugger
+php81-mbstring-8.1.22-r0 - PHP81 extension: Multibyte String Functions
+php81-posix-8.1.22-r0 - PHP81 extension: Posix
+icinga-php-thirdparty-0.11.0-r0 - Bundle for all 3rd party PHP libraries used by Icinga Web products
+php81-dom-8.1.22-r0 - PHP81 extension: DOM
+php81-pecl-memcache-8.0-r0 - PHP 8.1 memcache extension, provides handy OO and procedural interfaces, can be used as session handler - PECL
+php81-sysvmsg-8.1.22-r0 - PHP81 extension: System V Message based IPC
+php81-pecl-redis-5.3.7-r0 - PHP 8.1 extension for interfacing with Redis - PECL
+perl-php-serialization-0.34-r3 - Simple flexible means of converting the output of PHP's serialize() into the equivalent Perl memory structure, and vice versa.
+php81-pdo-8.1.22-r0 - PHP81 extension: PHP Data Objects
+php81-pecl-vips-1.0.13-r0 - PHP 8.1 extension for interfacing with vips - PECL
+php81-iconv-8.1.22-r0 - PHP81 extension: Iconv
+php81-zip-8.1.22-r0 - PHP81 extension: Zip
+php81-pecl-swoole-dev-5.0.3-r0 - Event-driven asynchronous and concurrent networking engine with high performance for PHP 8.1 - PECL (development files)
+php81-curl-8.1.22-r0 - PHP81 extension: cURL
+php81-enchant-8.1.22-r0 - PHP81 extension: enchant
+php81-pecl-maxminddb-1.11.0-r0 - PHP 8.1 MaxMind DB Reader extension - PECL
+php81-8.1.22-r0 - The PHP81 language runtime engine
+php81-xmlreader-8.1.22-r0 - PHP81 extension: XMLReader
+php81-dba-8.1.22-r0 - PHP81 extension: DBA
+icinga-php-library-doc-0.10.0-r0 - Bundle for all Icinga PHP libraries (documentation)
+php81-pdo_odbc-8.1.22-r0 - PHP81 extension: ODBC driver for PDO
+php81-gmp-8.1.22-r0 - PHP81 extension: GNU GMP support
+php81-gettext-8.1.22-r0 - PHP81 extension: GetText
+php81-gd-8.1.22-r0 - PHP81 extension: GD imaging
+
