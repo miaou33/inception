@@ -29,7 +29,7 @@ rmv			:
 clean		:
 			docker system prune
 
-fclean		: rmv
+fclean		: stop rmv
 			docker system prune -fa
 
 re			: fclean all

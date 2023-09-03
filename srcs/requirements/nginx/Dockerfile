@@ -9,8 +9,8 @@ RUN apk update --no-cache \
 
 # Create necessary folders and give permissions
 RUN mkdir -p /run/nginx \
+	&& mkdir -p /var/www/wordpress \
     && mkdir -p /etc/nginx/ssl \
-    && mkdir /var/www/wordpress     \
     && chown -R nginx:nginx /var/log/nginx
 
 # Generate a self-signed SSL certificate (For testing purposes only)
