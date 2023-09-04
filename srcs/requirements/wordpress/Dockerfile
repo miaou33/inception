@@ -37,7 +37,8 @@ RUN mkdir -p /var/www
 RUN wget -q https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
     && adduser -D php                  \
     && chmod +x wp-cli.phar         \
-    && mv wp-cli.phar /usr/local/bin/wp
+    && mv wp-cli.phar /usr/local/bin/wp \
+    && chown -R php:php /var/log/php81
 
 # Reconfiguration of the php-fpm process
 COPY conf/www.conf /etc/php8/php-fpm.d/www.conf
