@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Make sure that MariaDB is up and running before starting WordPress
-while ! mysql -h mariadb -u$DB_USER -p$DB_USER_PASSWD --silent > /dev/null 2>&1; do
+while ! mysql -h mariadb -u$DB_USR -p$DB_USR_PWD --silent > /dev/null 2>&1; do
     sleep 1
 done
 
@@ -41,3 +41,6 @@ fi
 
 # Start PHP and Nginx
 exec "$@"
+#exec "php-fpm81 --nodaemonize --fpm-config /etc/php81/php-fpm.d/www.conf -y /etc/php81/php-fpm.conf --force-stderr"
+#exec "php-fpm81 -F -R >> /var/log/php81/fpm-start.log 2>&1"
+
