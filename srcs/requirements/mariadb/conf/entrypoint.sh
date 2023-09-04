@@ -5,7 +5,6 @@ chown -R mysql:mysql /var/run/mysqld # Give MySQL user permission to write to th
 mkdir -p /var/log/mysql # Create the directory for MySQL's log files
 chown -R mysql:mysql /var/log/mysql # Give MySQL user permission to write to the log file directory
 
-
 # Check if MySQL data exists and if not, creates it
 if [ ! -d /var/lib/mysql/mysql ]; then
 

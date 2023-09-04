@@ -9,6 +9,9 @@ DEBUG_PORT ?= 9000
 all			: run
 
 run			:
+	    	mkdir -p /home/noe/data/mariadb
+	    	mkdir -p /home/noe/data/wordpress
+		    sudo chown -R noe:noe /home/noe/data
 			docker-compose -f $(SRCS)/$(COMPOSER) up --build -d
 
 stop		:

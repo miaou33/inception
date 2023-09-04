@@ -10,7 +10,7 @@ services:
       - mariadb_data:/var/lib/mysql
     networks:
       - inception
-    restart: on-failure
+    restart: always
 
   wordpress:
     container_name: wordpress
@@ -24,7 +24,7 @@ services:
       - wordpress_data:/var/www/wordpress
     depends_on:
       - mariadb
-    restart: on-failure
+    restart: always
 
 
   nginx:
@@ -41,7 +41,7 @@ services:
       - wordpress_data:/var/www/wordpress
     depends_on: 
       - wordpress
-    restart: on-failure
+    restart: always
 
 volumes :
   wordpress_data :
@@ -49,14 +49,14 @@ volumes :
     driver_opts :
       type    : 'none'
       o       : 'bind'
-      device  : '/home/noe/data/wordpress'
+      device  : '/home/noe/data/db/wordpress'
 
   mariadb_data :
     driver : local
     driver_opts :
       type    : 'none'
       o       : 'bind'
-      device  : '/home/noe/data/mariadb'
+      device  : '/home/noe/data/db/mariadb'
 
 networks:
   inception:
