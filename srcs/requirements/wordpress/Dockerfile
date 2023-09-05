@@ -33,7 +33,7 @@ RUN apk update --no-cache \
 	&& tar -xzf latest.tar.gz \
     && rm latest.tar.gz
 
-RUN mkdir -p /var/www
+RUN mkdir -p /var/www/wordpress
 
 # Download of the CLI (Command Line Interface) of WordPress that allows to manage the installation without using the web interface
 # Creation of the user that will run the php-fpm process
@@ -54,5 +54,5 @@ COPY conf/entrypoint.sh /entrypoint.sh
 EXPOSE 9000
 
 # The container will start with the entrypoint.sh script that configures it and then execute the php-fpm8 process
-#ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
 CMD ["php-fpm81", "-F"]
