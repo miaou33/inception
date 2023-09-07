@@ -1,7 +1,5 @@
-# Use Alpine 3.17 image
 FROM alpine:3.17
 
-# Install packages and WordPress
 RUN apk update --no-cache \
     && apk upgrade --no-cache \
     && apk add --no-cache php81 \
@@ -35,9 +33,6 @@ RUN apk update --no-cache \
 
 RUN mkdir -p /var/www/wordpress
 
-# Download of the CLI (Command Line Interface) of WordPress that allows to manage the installation without using the web interface
-# Creation of the user that will run the php-fpm process
-# CLI is made executable and moved to the bin folder
 RUN wget -q https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
     && adduser -D php                  \
     && chmod +x wp-cli.phar         \
@@ -45,14 +40,10 @@ RUN wget -q https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
 
 RUN chown -R php:php /var/log/php81
 
-# Reconfiguration of the php-fpm process
 COPY conf/www.conf /etc/php81/php-fpm.d/www.conf
-COPY conf/php-fpm.conf /etc/php81/php-fpm.conf
 COPY conf/entrypoint.sh /entrypoint.sh
 
-# Exposition of the port 9000 for the php-fpm process
 EXPOSE 9000
 
-# The container will start with the entrypoint.sh script that configures it and then execute the php-fpm8 process
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["php-fpm81", "-F"]
