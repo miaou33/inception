@@ -36,9 +36,9 @@ cp srcs/.env.example srcs/.env
 ```
 
 > This project is configured to run on localhost (127.0.0.1). You'll need to configure the domain name you've chosen to point to your local IP address in your `/etc/hosts` file by adding at the end of the file:
-```
-127.0.0.1 <your domain name>
-```
+> ```
+> 127.0.0.1 <your domain name>
+> ```
 
 Finally, you can build the project with:
 
