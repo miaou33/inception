@@ -1,7 +1,7 @@
 [![en](https://img.shields.io/badge/lang-en-pink.svg)](https://github.com/nfauconn/inception/blob/master/README.md)
 [![fr](https://img.shields.io/badge/lang-fr-purple.svg)](https://github.com/nfauconn/inception/blob/master/README.fr.md)
 
-*System Administration* • *Virtualization* • *Docker* • *Technology Watch* • *Network & System Administration* • *Web* • *Security* • *Scripting* • *Alpine Linux*
+*System Administration* • *Virtualization* • *Docker* • *Network Administration* • *Web* • *Security* • *Scripting* • *Alpine Linux*
 
 # Inception
 
